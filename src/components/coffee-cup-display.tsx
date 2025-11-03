@@ -9,7 +9,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
   const totalPercentage = ingredients.reduce((sum, ing) => sum + ing.percentage, 0);
 
   return (
-    <div className="relative w-32 h-32 flex items-center justify-center">
+    <div className="relative w-40 h-40 flex items-center justify-center">
       <svg
         viewBox="0 0 33 32"
         className="w-full h-full"
@@ -25,7 +25,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
         <g clipPath="url(#cup-clip)">
           {(() => {
             let accumulatedPercentage = 0;
-            return ingredients.map((ingredient, index) => {
+            return [...ingredients].map((ingredient, index) => {
               const layerHeight = (ingredient.percentage / totalPercentage) * 16.06;
               const y = 27.06 - accumulatedPercentage - layerHeight; // y is from the top of SVG
               accumulatedPercentage += layerHeight;
@@ -70,11 +70,11 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
                   textAnchor="middle"
                   dy="0.35em"
                   className="font-bold fill-white"
-                  style={{ fontSize: '2.2px', textShadow: '0px 0px 4px rgba(0,0,0,0.9)' }}
+                  style={{ fontSize: '2.5px', textShadow: '0px 0px 4px rgba(0,0,0,0.9)' }}
                 >
                   {ingredient.name}
                 </text>
-                {index < ingredients.length - 1 && (
+                {index > 0 && (
                    <path
                     d={`M 2 ${separatorY} C 8 ${separatorY - 1}, 18 ${separatorY + 1}, 25 ${separatorY}`}
                     fill="none"
