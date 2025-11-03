@@ -25,10 +25,9 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
         <g clipPath="url(#cup-clip)">
           {(() => {
             let accumulatedPercentage = 0;
-            const reversedIngredients = [...ingredients].reverse();
-            return reversedIngredients.map((ingredient, index) => {
+            return ingredients.map((ingredient, index) => {
               const layerHeight = (ingredient.percentage / totalPercentage) * 16.06;
-              const y = 11 + accumulatedPercentage;
+              const y = 11 + (16.06 - accumulatedPercentage - layerHeight);
               accumulatedPercentage += layerHeight;
 
               return (
@@ -56,13 +55,12 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
         {/* Wavy Separators and Text */}
         {(() => {
           let accumulatedHeight = 0;
-          const reversedIngredients = [...ingredients].reverse();
-          return reversedIngredients.map((ingredient, index) => {
+          return ingredients.map((ingredient, index) => {
              const layerHeight = (ingredient.percentage / totalPercentage) * 16.06;
-             const yPosition = 11 + accumulatedHeight;
-             const textY = yPosition + layerHeight / 2;
+             const yPosition = 11 + (16.06 - accumulatedHeight);
+             const textY = yPosition - layerHeight / 2;
+             const separatorY = yPosition - layerHeight;
              accumulatedHeight += layerHeight;
-             const separatorY = 11 + accumulatedHeight;
 
             return (
               <g key={`text-wave-${index}`}>
@@ -76,7 +74,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
                 >
                   {ingredient.name}
                 </text>
-                {index < ingredients.length - 1 && (
+                {index > 0 && (
                    <path
                     d={`M 2 ${separatorY} C 8 ${separatorY - 1}, 18 ${separatorY + 1}, 25 ${separatorY}`}
                     fill="none"

@@ -34,8 +34,8 @@ export const menuData: MenuItem[] = [
     price: '۸۰', 
     category: 'بار گرم', 
     ingredients: [
-      { name: 'آب داغ', percentage: 60, color: 'bg-blue-200' },
       { name: 'اسپرسو', percentage: 40, color: 'bg-yellow-800' },
+      { name: 'آب داغ', percentage: 60, color: 'bg-blue-200' },
     ]
   },
   { 
@@ -44,9 +44,9 @@ export const menuData: MenuItem[] = [
     price: '۹۰', 
     category: 'بار گرم', 
     ingredients: [
-        { name: 'فوم شیر', percentage: 15, color: 'bg-white/80' },
-        { name: 'شیر بخار داده شده', percentage: 65, color: 'bg-orange-200' },
         { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
+        { name: 'شیر بخار داده شده', percentage: 65, color: 'bg-orange-200' },
+        { name: 'فوم شیر', percentage: 15, color: 'bg-white/80' },
     ]
   },
   { id: 4, name: 'کارامل ماکیاتو', price: '۱۱۰', category: 'بار گرم', description: 'اسپرسو، شیر، سس کارامل' },
@@ -57,9 +57,9 @@ export const menuData: MenuItem[] = [
     price: '۹۰', 
     category: 'بار گرم',
     ingredients: [
-        { name: 'فوم شیر', percentage: 33, color: 'bg-white/80' },
-        { name: 'شیر بخار داده شده', percentage: 34, color: 'bg-orange-200' },
         { name: 'اسپرسو', percentage: 33, color: 'bg-yellow-800' },
+        { name: 'شیر بخار داده شده', percentage: 34, color: 'bg-orange-200' },
+        { name: 'فوم شیر', percentage: 33, color: 'bg-white/80' },
     ]
   },
   { id: 7, name: 'نسکافه', price: '۹۰', category: 'بار گرم', description: 'قهوه فوری و شیر' },
@@ -82,9 +82,9 @@ export const menuData: MenuItem[] = [
     price: '۱۱۰', 
     category: 'بار سرد',
     ingredients: [
-      { name: 'یخ', percentage: 25, color: 'bg-sky-200/80' },
-      { name: 'شیر سرد', percentage: 55, color: 'bg-orange-100' },
       { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
+      { name: 'شیر سرد', percentage: 55, color: 'bg-orange-100' },
+      { name: 'یخ', percentage: 25, color: 'bg-sky-200/80' },
     ]
   },
   { 
@@ -93,10 +93,10 @@ export const menuData: MenuItem[] = [
     price: '۱۳۰', 
     category: 'بار سرد',
     ingredients: [
-        { name: 'سس کارامل', percentage: 15, color: 'bg-amber-500' },
-        { name: 'یخ', percentage: 20, color: 'bg-sky-200/80' },
-        { name: 'شیر سرد', percentage: 45, color: 'bg-orange-100' },
         { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
+        { name: 'شیر سرد', percentage: 45, color: 'bg-orange-100' },
+        { name: 'یخ', percentage: 20, color: 'bg-sky-200/80' },
+        { name: 'سس کارامل', percentage: 15, color: 'bg-amber-500' },
     ]
   },
   { 
@@ -105,10 +105,10 @@ export const menuData: MenuItem[] = [
     price: '۱۳۰', 
     category: 'بار سرد',
     ingredients: [
-        { name: 'سس شکلات', percentage: 15, color: 'bg-stone-600' },
-        { name: 'یخ', percentage: 20, color: 'bg-sky-200/80' },
-        { name: 'شیر سرد', percentage: 45, color: 'bg-orange-100' },
         { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
+        { name: 'شیر سرد', percentage: 45, color: 'bg-orange-100' },
+        { name: 'یخ', percentage: 20, color: 'bg-sky-200/80' },
+        { name: 'سس شکلات', percentage: 15, color: 'bg-stone-600' },
     ]
   },
   { 
@@ -117,8 +117,8 @@ export const menuData: MenuItem[] = [
     price: '۱۰۰', 
     category: 'بار سرد',
     ingredients: [
-        { name: 'اسپرسو داغ', percentage: 30, color: 'bg-yellow-800' },
         { name: 'بستنی وانیل', percentage: 70, color: 'bg-yellow-100' },
+        { name: 'اسپرسو داغ', percentage: 30, color: 'bg-yellow-800' },
     ]
   },
 ];
