@@ -7,6 +7,7 @@ interface CoffeeCupDisplayProps {
 
 const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
   const totalPercentage = ingredients.reduce((sum, ing) => sum + ing.percentage, 0);
+  const cupFillHeight = 16.06; // The visible height inside the cup from y=11 to y=27.06
 
   return (
     <div className="relative w-40 h-40 flex items-center justify-center">
@@ -24,11 +25,11 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
         {/* Ingredients Layers inside the clipped path */}
         <g clipPath="url(#cup-clip)">
           {(() => {
-            let accumulatedPercentage = 0;
+            let accumulatedHeight = 0;
             return ingredients.map((ingredient, index) => {
-              const layerHeight = (ingredient.percentage / totalPercentage) * 16.06;
-              const y = 27.06 - accumulatedPercentage - layerHeight;
-              accumulatedPercentage += layerHeight;
+              const layerHeight = (ingredient.percentage / totalPercentage) * cupFillHeight;
+              const y = 27.06 - accumulatedHeight - layerHeight;
+              accumulatedHeight += layerHeight;
 
               return (
                 <rect
@@ -56,14 +57,23 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
         {(() => {
           let accumulatedHeight = 0;
           return ingredients.map((ingredient, index) => {
-             const layerHeight = (ingredient.percentage / totalPercentage) * 16.06;
-             const yPosition = 27.06 - accumulatedHeight - layerHeight;
-             const textY = yPosition + layerHeight / 2;
-             const separatorY = yPosition + 1.2; // Offset the separator line down slightly
+             const layerHeight = (ingredient.percentage / totalPercentage) * cupFillHeight;
+             const yPosition = 27.06 - accumulatedHeight;
+             const textY = yPosition - (layerHeight / 2);
              accumulatedHeight += layerHeight;
 
             return (
               <g key={`text-wave-${index}`}>
+                 {index < ingredients.length -1 && (
+                   <path
+                    d={`M 2 ${yPosition - layerHeight} C 8 ${yPosition - layerHeight - 1}, 18 ${yPosition - layerHeight + 1}, 25 ${yPosition - layerHeight}`}
+                    fill="none"
+                    stroke="hsl(var(--primary))"
+                    strokeWidth="0.5"
+                    strokeLinecap="round"
+                    clipPath="url(#cup-clip)"
+                  />
+                )}
                 <text
                   x="13.5"
                   y={textY}
@@ -74,16 +84,6 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
                 >
                   {ingredient.name}
                 </text>
-                {index > 0 && (
-                   <path
-                    d={`M 2 ${separatorY} C 8 ${separatorY - 1}, 18 ${separatorY + 1}, 25 ${separatorY}`}
-                    fill="none"
-                    stroke="hsl(var(--primary))"
-                    strokeWidth="0.5"
-                    strokeLinecap="round"
-                    clipPath="url(#cup-clip)"
-                  />
-                )}
               </g>
             );
           });
