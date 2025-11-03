@@ -23,7 +23,7 @@ export default function Home() {
           onSelectCategory={setSelectedCategory}
         />
         <section
-          className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2"
           aria-label="آیتم های منو"
         >
           {filteredItems.map((item) => (
@@ -31,18 +31,20 @@ export default function Home() {
           ))}
         </section>
       </main>
-      <footer className="bg-card text-center py-6 mt-12 border-t border-primary/20">
+      <footer className="bg-background text-center py-8 mt-16 border-t border-primary/10">
         <div className="container mx-auto flex flex-col items-center gap-4">
           <a
-            href="https://instagram.com/karen.cafe"
+            href="https://instagram.com/karen_coffee98"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-lg text-primary hover:text-primary/80 transition-colors"
+            className="flex items-center gap-2.5 text-lg text-primary hover:text-primary/80 transition-colors"
           >
-            <Instagram size={24} />
-            <span className="font-semibold">karen.cafe</span>
+            <Instagram size={28} />
+            <span className="font-headline text-xl font-bold tracking-wider">
+              karen_coffee98
+            </span>
           </a>
-          <p className="text-muted-foreground text-sm">
+          <p className="text-muted-foreground text-xs mt-2">
             طراحی و توسعه توسط استودیو فایربیس
           </p>
         </div>
