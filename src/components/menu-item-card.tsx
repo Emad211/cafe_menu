@@ -9,8 +9,7 @@ interface MenuItemCardProps {
 
 const MenuItemCard: React.FC<MenuItemCardProps> = ({ item }) => {
   const { name, price, icon } = item;
-  // @ts-ignore
-  const IconComponent = LucideIcons[icon] as React.ElementType;
+  const IconComponent = (LucideIcons as any)[icon] as React.ElementType;
 
   return (
     <Card className="menu-item-card w-full bg-transparent border-0 border-b border-dashed border-border/50 rounded-none shadow-none p-4 flex justify-between items-center transition-all duration-300 hover:bg-card hover:-translate-y-1">

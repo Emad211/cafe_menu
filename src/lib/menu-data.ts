@@ -31,5 +31,5 @@ export const menuData: MenuItem[] = [
   { id: 13, name: 'آیس لاته', price: '۱۱۰', category: 'بار سرد', icon: 'CupSoda' },
   { id: 14, name: 'آیس کارامل', price: '۱۳۰', category: 'بار سرد', icon: 'CupSoda' },
   { id: 15, name: 'آیس موکا', price: '۱۳۰', category: 'بار سرد', icon: 'CupSoda' },
-  { id: 16, name: 'افوکاتو', price: '۱۰۰', category: 'بار سرد', icon: 'IceCream2' },
+  { id: 16, name: 'افوکاتو', price: '۱۰۰', category: 'بار سرد', icon: 'IceCream' },
 ];
