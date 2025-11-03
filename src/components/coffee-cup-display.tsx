@@ -16,7 +16,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
             className={`flex items-center justify-center text-center ${ingredient.color}`}
             style={{ height: `${ingredient.percentage}%` }}
           >
-            <span className="text-xs font-bold text-black/70 mix-blend-hard-light p-1 leading-tight">
+            <span className="text-xs font-bold text-black/60 p-1 leading-tight">
               {ingredient.name}
             </span>
           </div>
