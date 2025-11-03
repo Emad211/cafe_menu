@@ -22,7 +22,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item }) => {
         </div>
       </div>
       
-      {ingredients ? (
+      {ingredients && ingredients.length > 0 ? (
         <IngredientChart ingredients={ingredients} />
       ) : (
         <p className="text-sm text-muted-foreground mt-1">{description}</p>
