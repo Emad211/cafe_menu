@@ -57,9 +57,9 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
           let accumulatedHeight = 0;
           return ingredients.map((ingredient, index) => {
              const layerHeight = (ingredient.percentage / totalPercentage) * 16.06;
-             const yPosition = 11 + (16.06 - accumulatedHeight);
-             const textY = yPosition - layerHeight / 2;
-             const separatorY = yPosition - layerHeight;
+             const yPosition = 11 + (16.06 - accumulatedHeight - layerHeight);
+             const textY = yPosition + layerHeight / 2;
+             const separatorY = yPosition;
              accumulatedHeight += layerHeight;
 
             return (
