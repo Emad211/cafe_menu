@@ -1,5 +1,4 @@
 import React from 'react';
-import * as LucideIcons from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import type { MenuItem } from '@/lib/menu-data';
 
@@ -8,23 +7,20 @@ interface MenuItemCardProps {
 }
 
 const MenuItemCard: React.FC<MenuItemCardProps> = ({ item }) => {
-  const { name, price, icon } = item;
-  const IconComponent = (LucideIcons as any)[icon] as React.ElementType;
+  const { name, price, description } = item;
 
   return (
-    <Card className="menu-item-card w-full bg-transparent border-0 border-b border-dashed border-border/50 rounded-none shadow-none p-4 flex justify-between items-center transition-all duration-300 hover:bg-card hover:-translate-y-1">
-      <div className="flex items-center gap-4">
-        {IconComponent && (
-          <IconComponent className="menu-item-icon w-6 h-6 text-primary transition-transform duration-300" />
-        )}
+    <Card className="menu-item-card w-full bg-transparent border-0 border-b border-dashed border-border/50 rounded-none shadow-none p-4 flex flex-col transition-all duration-300 hover:bg-card hover:-translate-y-1">
+      <div className="flex justify-between items-center w-full">
         <h3 className="font-headline text-xl font-semibold text-foreground">
           {name}
         </h3>
+        <div className="flex items-center gap-3">
+            <div className="flex-grow border-t border-dashed border-border/30"></div>
+            <p className="text-xl font-bold text-primary">{price}</p>
+        </div>
       </div>
-      <div className="flex items-center gap-3">
-        <div className="flex-grow border-t border-dashed border-border/30"></div>
-        <p className="text-xl font-bold text-primary">{price}</p>
-      </div>
+      <p className="text-sm text-muted-foreground mt-1">{description}</p>
     </Card>
   );
 };
