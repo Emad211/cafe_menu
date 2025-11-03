@@ -10,54 +10,50 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
   let accumulatedPercentage = 0;
 
   return (
-    <div className="relative w-32 h-36 flex items-center justify-center">
+    <div className="relative w-32 h-40 flex items-center justify-center">
       <svg
-        viewBox="0 0 100 110"
+        viewBox="0 0 100 120"
         className="w-full h-full"
-        style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))' }}
+        style={{ filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }}
       >
-        {/* Cup body as a clipping path */}
+        {/* Clipping Path for the glass shape */}
         <defs>
-          <clipPath id="cup-clip">
-            <path d="M 15 10 H 85 L 80 100 H 20 L 15 10 Z" />
+          <clipPath id="glass-clip">
+            <path d="M 20 10 H 80 L 75 105 H 25 L 20 10 Z" />
           </clipPath>
         </defs>
 
-        {/* Cup Outline */}
+        {/* Glass Outline */}
         <path
-          d="M 15 10 H 85 L 80 100 H 20 L 15 10 Z"
+          d="M 20 10 H 80 L 75 105 H 25 L 20 10 Z"
           fill="transparent"
           stroke="hsl(var(--muted-foreground))"
-          strokeWidth="3"
+          strokeWidth="2.5"
         />
-        {/* Cup Handle */}
-        <path
-          d="M 85 25 C 105 35, 105 65, 85 75"
+        {/* Top Rim */}
+        <ellipse 
+          cx="50" 
+          cy="10" 
+          rx="30" 
+          ry="4"
           fill="transparent"
           stroke="hsl(var(--muted-foreground))"
-          strokeWidth="3"
-        />
-         {/* Top Lip */}
-         <path 
-          d="M 15 10 C 25 0, 75 0, 85 10"
-          fill="transparent"
-          stroke="hsl(var(--muted-foreground))"
-          strokeWidth="3"
+          strokeWidth="2.5"
         />
 
-        {/* Ingredients Layers */}
-        <g clipPath="url(#cup-clip)">
+        {/* Ingredients Layers inside the clipped path */}
+        <g clipPath="url(#glass-clip)">
           {ingredients.map((ingredient, index) => {
-            const y = 100 - (accumulatedPercentage + ingredient.percentage) * 90 / totalPercentage;
-            const height = ingredient.percentage * 90 / totalPercentage;
+            const y = 100 - (accumulatedPercentage + ingredient.percentage) * 95 / totalPercentage;
+            const height = ingredient.percentage * 95 / totalPercentage;
             accumulatedPercentage += ingredient.percentage;
 
             return (
               <rect
                 key={index}
-                x="15"
+                x="20"
                 y={10 + y}
-                width="70"
+                width="60"
                 height={height}
                 className={ingredient.color}
               />
@@ -69,7 +65,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
         {(() => {
           let accumulatedHeight = 0;
           return ingredients.map((ingredient, index) => {
-            const layerHeight = (ingredient.percentage / totalPercentage) * 90;
+            const layerHeight = (ingredient.percentage / totalPercentage) * 95;
             const yPosition = 10 + accumulatedHeight;
             const textY = yPosition + layerHeight / 2;
             accumulatedHeight += layerHeight;
@@ -83,13 +79,13 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
                   textAnchor="middle"
                   dy="0.35em"
                   className="font-bold fill-white"
-                  style={{ textShadow: '0px 0px 4px rgba(0,0,0,0.8)', fontSize: '0.6rem' }}
+                  style={{ textShadow: '0px 0px 4px rgba(0,0,0,0.9)', fontSize: '0.7rem' }}
                 >
                   {ingredient.name}
                 </text>
                 {index < ingredients.length - 1 && (
                    <path
-                    d={`M 20 ${separatorY} C 40 ${separatorY - 5}, 60 ${separatorY + 5}, 80 ${separatorY}`}
+                    d={`M 25 ${separatorY} C 40 ${separatorY - 4}, 60 ${separatorY + 4}, 75 ${separatorY}`}
                     fill="none"
                     stroke="hsl(var(--primary))"
                     strokeWidth="1.5"
