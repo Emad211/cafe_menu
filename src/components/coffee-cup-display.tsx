@@ -10,7 +10,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
   const cupFillHeight = 16.06; // The visible height inside the cup from y=11 to y=27.06
 
   return (
-    <div className="relative w-40 h-40 flex items-center justify-center">
+    <div className="relative w-48 h-48 flex items-center justify-center">
       <svg
         viewBox="0 0 33 32"
         className="w-full h-full"
@@ -59,19 +59,17 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
           return ingredients.map((ingredient, index) => {
              const layerHeight = (ingredient.percentage / totalPercentage) * cupFillHeight;
              const yPosition = 27.06 - accumulatedHeight;
-             // Shift the text up slightly, especially for the bottom layer.
-             const textY = yPosition - (layerHeight / 2) - (index === ingredients.length -1 ? 0.8 : 0);
-             const separatorY = yPosition - layerHeight;
+             const textY = yPosition - (layerHeight / 2);
              accumulatedHeight += layerHeight;
 
             return (
               <g key={`text-wave-${index}`}>
-                 {index < ingredients.length - 1 && (
+                 {index > 0 && (
                    <path
-                    d={`M 2 ${separatorY + 0.8} C 8 ${separatorY - 0.2}, 18 ${separatorY + 1.8}, 25 ${separatorY + 0.8}`}
+                    d={`M 2 ${yPosition} C 8 ${yPosition - 1}, 18 ${yPosition + 1}, 25 ${yPosition}`}
                     fill="none"
                     stroke="hsl(var(--primary))"
-                    strokeWidth="0.5"
+                    strokeWidth="0.6"
                     strokeLinecap="round"
                     clipPath="url(#cup-clip)"
                   />
@@ -82,7 +80,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
                   textAnchor="middle"
                   dy="0.35em"
                   className="font-bold fill-white"
-                  style={{ fontSize: '2.5px', textShadow: '0px 0px 4px rgba(0,0,0,0.9)' }}
+                  style={{ fontSize: '2.8px', textShadow: '0px 0px 5px rgba(0,0,0,1)' }}
                 >
                   {ingredient.name}
                 </text>
