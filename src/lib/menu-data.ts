@@ -1,3 +1,4 @@
+
 export type Category = 'بار گرم' | 'بار سرد';
 
 export interface Ingredient {
@@ -34,8 +35,8 @@ export const menuData: MenuItem[] = [
     price: '۸۰', 
     category: 'بار گرم', 
     ingredients: [
-      { name: 'اسپرسو', percentage: 40, color: 'bg-yellow-800' },
       { name: 'آب داغ', percentage: 60, color: 'bg-blue-200' },
+      { name: 'اسپرسو', percentage: 40, color: 'bg-yellow-800' },
     ]
   },
   { 
@@ -44,29 +45,95 @@ export const menuData: MenuItem[] = [
     price: '۹۰', 
     category: 'بار گرم', 
     ingredients: [
-        { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
         { name: 'شیر بخار داده شده', percentage: 65, color: 'bg-orange-200' },
         { name: 'فوم شیر', percentage: 15, color: 'bg-white/80' },
+        { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
     ]
   },
-  { id: 4, name: 'کارامل ماکیاتو', price: '۱۱۰', category: 'بار گرم', description: 'اسپرسو، شیر، سس کارامل' },
-  { id: 5, name: 'موکا', price: '۱۱۰', category: 'بار گرم', description: 'اسپرسو، شکلات، شیر' },
+  { 
+    id: 4, 
+    name: 'کارامل ماکیاتو', 
+    price: '۱۱۰', 
+    category: 'بار گرم', 
+    ingredients: [
+        { name: 'شیر بخار داده شده', percentage: 55, color: 'bg-orange-200' },
+        { name: 'فوم شیر', percentage: 15, color: 'bg-white/80' },
+        { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
+        { name: 'سس کارامل', percentage: 10, color: 'bg-amber-500' },
+    ]
+  },
+  { 
+    id: 5, 
+    name: 'موکا', 
+    price: '۱۱۰', 
+    category: 'بار گرم', 
+    ingredients: [
+        { name: 'شیر بخار داده شده', percentage: 55, color: 'bg-orange-200' },
+        { name: 'فوم شیر', percentage: 10, color: 'bg-white/80' },
+        { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
+        { name: 'سس شکلات', percentage: 15, color: 'bg-stone-600' },
+    ]
+  },
   { 
     id: 6, 
     name: 'کاپوچینو', 
     price: '۹۰', 
     category: 'بار گرم',
     ingredients: [
-        { name: 'اسپرسو', percentage: 33, color: 'bg-yellow-800' },
         { name: 'شیر بخار داده شده', percentage: 34, color: 'bg-orange-200' },
         { name: 'فوم شیر', percentage: 33, color: 'bg-white/80' },
+        { name: 'اسپرسو', percentage: 33, color: 'bg-yellow-800' },
     ]
   },
-  { id: 7, name: 'نسکافه', price: '۹۰', category: 'بار گرم', description: 'قهوه فوری و شیر' },
-  { id: 8, name: 'نسکافه مخصوص', price: '۱۱۰', category: 'بار گرم', description: 'قهوه فوری، شیر، خامه' },
-  { id: 9, name: 'هات چاکلت', price: '۹۰', category: 'بار گرم', description: 'شکلات داغ و شیر' },
-  { id: 10, name: 'دمنوش', price: '۴۰', category: 'بار گرم', description: 'ترکیبی از گیاهان معطر' },
-  { id: 11, name: 'چای', price: '۲۵', category: 'بار گرم', description: 'چای سیاه کلاسیک' },
+  { 
+    id: 7, 
+    name: 'نسکافه', 
+    price: '۹۰', 
+    category: 'بار گرم', 
+    ingredients: [
+      { name: 'شیر', percentage: 80, color: 'bg-orange-200' },
+      { name: 'قهوه فوری', percentage: 20, color: 'bg-amber-700' },
+    ]
+  },
+  { 
+    id: 8, 
+    name: 'نسکافه مخصوص', 
+    price: '۱۱۰', 
+    category: 'بار گرم', 
+    ingredients: [
+      { name: 'شیر', percentage: 70, color: 'bg-orange-200' },
+      { name: 'خامه', percentage: 15, color: 'bg-white/90' },
+      { name: 'قهوه فوری', percentage: 15, color: 'bg-amber-700' },
+    ]
+  },
+  { 
+    id: 9, 
+    name: 'هات چاکلت', 
+    price: '۹۰', 
+    category: 'بار گرم', 
+    ingredients: [
+      { name: 'شیر', percentage: 70, color: 'bg-orange-200' },
+      { name: 'شکلات', percentage: 30, color: 'bg-stone-600' },
+    ]
+  },
+  { 
+    id: 10, 
+    name: 'دمنوش', 
+    price: '۴۰', 
+    category: 'بار گرم', 
+    ingredients: [
+        { name: 'دمنوش گیاهی', percentage: 100, color: 'bg-rose-400' },
+    ]
+  },
+  { 
+    id: 11, 
+    name: 'چای', 
+    price: '۲۵', 
+    category: 'بار گرم', 
+    ingredients: [
+      { name: 'چای سیاه', percentage: 100, color: 'bg-red-700' },
+    ]
+  },
 
   // بار سرد
   { 
@@ -74,7 +141,10 @@ export const menuData: MenuItem[] = [
     name: 'آیس کافی', 
     price: '۹۰', 
     category: 'بار سرد', 
-    description: 'ترکیبی گوارا از قهوه دمی سرد به همراه یخ'
+    ingredients: [
+      { name: 'قهوه سرد', percentage: 75, color: 'bg-yellow-900' },
+      { name: 'یخ', percentage: 25, color: 'bg-sky-200/80' },
+    ]
   },
   { 
     id: 13, 
@@ -82,9 +152,9 @@ export const menuData: MenuItem[] = [
     price: '۱۱۰', 
     category: 'بار سرد',
     ingredients: [
-      { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
       { name: 'شیر سرد', percentage: 55, color: 'bg-orange-100' },
       { name: 'یخ', percentage: 25, color: 'bg-sky-200/80' },
+      { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
     ]
   },
   { 
@@ -93,10 +163,10 @@ export const menuData: MenuItem[] = [
     price: '۱۳۰', 
     category: 'بار سرد',
     ingredients: [
-        { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
         { name: 'شیر سرد', percentage: 45, color: 'bg-orange-100' },
         { name: 'یخ', percentage: 20, color: 'bg-sky-200/80' },
         { name: 'سس کارامل', percentage: 15, color: 'bg-amber-500' },
+        { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
     ]
   },
   { 
@@ -105,10 +175,10 @@ export const menuData: MenuItem[] = [
     price: '۱۳۰', 
     category: 'بار سرد',
     ingredients: [
-        { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
         { name: 'شیر سرد', percentage: 45, color: 'bg-orange-100' },
         { name: 'یخ', percentage: 20, color: 'bg-sky-200/80' },
         { name: 'سس شکلات', percentage: 15, color: 'bg-stone-600' },
+        { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
     ]
   },
   { 
