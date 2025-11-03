@@ -82,3 +82,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .menu-item-card:hover .menu-item-icon {
+    transform: scale(1.1) rotate(-15deg);
+  }
+}
