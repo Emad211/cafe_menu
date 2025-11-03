@@ -5,9 +5,9 @@ import { Button } from '@/components/ui/button';
 import type { Category } from '@/lib/menu-data';
 
 interface CategoryFiltersProps {
-  categories: (Category | 'همه')[];
-  selectedCategory: Category | 'همه';
-  onSelectCategory: (category: Category | 'همه') => void;
+  categories: Category[];
+  selectedCategory: Category;
+  onSelectCategory: (category: Category) => void;
 }
 
 const CategoryFilters: React.FC<CategoryFiltersProps> = ({

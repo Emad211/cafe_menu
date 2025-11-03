@@ -8,20 +8,16 @@ import { menuData, categories } from '@/lib/menu-data';
 import type { Category } from '@/lib/menu-data';
 
 export default function Home() {
-  const [selectedCategory, setSelectedCategory] = useState<Category | 'همه'>('همه');
+  const [selectedCategory, setSelectedCategory] = useState<Category>(categories[0]);
 
-  const allCategories: (Category | 'همه')[] = ['همه', ...categories];
-
-  const filteredItems = selectedCategory === 'همه'
-    ? menuData
-    : menuData.filter((item) => item.category === selectedCategory);
+  const filteredItems = menuData.filter((item) => item.category === selectedCategory);
 
   return (
     <div className="bg-background min-h-screen">
       <main className="container mx-auto px-4 py-8">
         <MenuHeader />
         <CategoryFilters
-          categories={allCategories}
+          categories={categories}
           selectedCategory={selectedCategory}
           onSelectCategory={setSelectedCategory}
         />
