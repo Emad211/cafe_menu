@@ -34,7 +34,7 @@ export const menuData: MenuItem[] = [
     price: '۸۰', 
     category: 'بار گرم', 
     ingredients: [
-      { name: 'آب داغ', percentage: 60, color: 'bg-blue-300/70' },
+      { name: 'آب داغ', percentage: 60, color: 'bg-blue-200' },
       { name: 'اسپرسو', percentage: 40, color: 'bg-yellow-800' },
     ]
   },
@@ -44,7 +44,7 @@ export const menuData: MenuItem[] = [
     price: '۹۰', 
     category: 'بار گرم', 
     ingredients: [
-        { name: 'فوم شیر', percentage: 15, color: 'bg-white/70' },
+        { name: 'فوم شیر', percentage: 15, color: 'bg-white/80' },
         { name: 'شیر بخار داده شده', percentage: 65, color: 'bg-orange-200' },
         { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
     ]
@@ -57,7 +57,7 @@ export const menuData: MenuItem[] = [
     price: '۹۰', 
     category: 'بار گرم',
     ingredients: [
-        { name: 'فوم شیر', percentage: 33, color: 'bg-white/70' },
+        { name: 'فوم شیر', percentage: 33, color: 'bg-white/80' },
         { name: 'شیر بخار داده شده', percentage: 34, color: 'bg-orange-200' },
         { name: 'اسپرسو', percentage: 33, color: 'bg-yellow-800' },
     ]
@@ -69,9 +69,56 @@ export const menuData: MenuItem[] = [
   { id: 11, name: 'چای', price: '۲۵', category: 'بار گرم', description: 'چای سیاه کلاسیک' },
 
   // بار سرد
-  { id: 12, name: 'آیس کافی', price: '۹۰', category: 'بار سرد', description: 'قهوه سرد و یخ' },
-  { id: 13, name: 'آیس لاته', price: '۱۱۰', category: 'بار سرد', description: 'اسپرسو، شیر سرد، یخ' },
-  { id: 14, name: 'آیس کارامل', price: '۱۳۰', category: 'بار سرد', description: 'اسپرسو، شیر، سس کارامل، یخ' },
-  { id: 15, name: 'آیس موکا', price: '۱۳۰', category: 'بار سرد', description: 'اسپرسو، شکلات، شیر، یخ' },
-  { id: 16, name: 'افوکاتو', price: '۱۰۰', category: 'بار سرد', description: 'اسپرسو داغ روی بستنی وانیلی' },
+  { 
+    id: 12, 
+    name: 'آیس کافی', 
+    price: '۹۰', 
+    category: 'بار سرد', 
+    description: 'ترکیبی گوارا از قهوه دمی سرد به همراه یخ'
+  },
+  { 
+    id: 13, 
+    name: 'آیس لاته', 
+    price: '۱۱۰', 
+    category: 'بار سرد',
+    ingredients: [
+      { name: 'یخ', percentage: 25, color: 'bg-sky-200/80' },
+      { name: 'شیر سرد', percentage: 55, color: 'bg-orange-100' },
+      { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
+    ]
+  },
+  { 
+    id: 14, 
+    name: 'آیس کارامل', 
+    price: '۱۳۰', 
+    category: 'بار سرد',
+    ingredients: [
+        { name: 'سس کارامل', percentage: 15, color: 'bg-amber-500' },
+        { name: 'یخ', percentage: 20, color: 'bg-sky-200/80' },
+        { name: 'شیر سرد', percentage: 45, color: 'bg-orange-100' },
+        { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
+    ]
+  },
+  { 
+    id: 15, 
+    name: 'آیس موکا', 
+    price: '۱۳۰', 
+    category: 'بار سرد',
+    ingredients: [
+        { name: 'سس شکلات', percentage: 15, color: 'bg-stone-600' },
+        { name: 'یخ', percentage: 20, color: 'bg-sky-200/80' },
+        { name: 'شیر سرد', percentage: 45, color: 'bg-orange-100' },
+        { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
+    ]
+  },
+  { 
+    id: 16, 
+    name: 'افوگاتو', 
+    price: '۱۰۰', 
+    category: 'بار سرد',
+    ingredients: [
+        { name: 'اسپرسو داغ', percentage: 30, color: 'bg-yellow-800' },
+        { name: 'بستنی وانیل', percentage: 70, color: 'bg-yellow-100' },
+    ]
+  },
 ];
