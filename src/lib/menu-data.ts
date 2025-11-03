@@ -11,7 +11,7 @@ export interface MenuItem {
   name: string;
   price: string;
   category: Category;
-  description: string;
+  description?: string;
   ingredients?: Ingredient[];
 }
 
@@ -24,9 +24,8 @@ export const menuData: MenuItem[] = [
     name: 'اسپرسو', 
     price: '۶۰', 
     category: 'بار گرم', 
-    description: 'قهوه غلیظ و خالص',
     ingredients: [
-      { name: 'قهوه', percentage: 100, color: 'bg-yellow-800' },
+      { name: 'اسپرسو', percentage: 100, color: 'bg-yellow-800' },
     ]
   },
   { 
@@ -34,16 +33,35 @@ export const menuData: MenuItem[] = [
     name: 'امریکانو', 
     price: '۸۰', 
     category: 'بار گرم', 
-    description: 'اسپرسو و آب داغ',
     ingredients: [
-      { name: 'قهوه', percentage: 40, color: 'bg-yellow-800' },
-      { name: 'آب داغ', percentage: 60, color: 'bg-blue-200' },
+      { name: 'آب داغ', percentage: 60, color: 'bg-blue-300/70' },
+      { name: 'اسپرسو', percentage: 40, color: 'bg-yellow-800' },
     ]
   },
-  { id: 3, name: 'لاته', price: '۹۰', category: 'بار گرم', description: 'اسپرسو و شیر بخار داده شده' },
+  { 
+    id: 3, 
+    name: 'لاته', 
+    price: '۹۰', 
+    category: 'بار گرم', 
+    ingredients: [
+        { name: 'فوم شیر', percentage: 15, color: 'bg-white/70' },
+        { name: 'شیر بخار داده شده', percentage: 65, color: 'bg-orange-200' },
+        { name: 'اسپرسو', percentage: 20, color: 'bg-yellow-800' },
+    ]
+  },
   { id: 4, name: 'کارامل ماکیاتو', price: '۱۱۰', category: 'بار گرم', description: 'اسپرسو، شیر، سس کارامل' },
   { id: 5, name: 'موکا', price: '۱۱۰', category: 'بار گرم', description: 'اسپرسو، شکلات، شیر' },
-  { id: 6, name: 'کاپوچینو', price: '۹۰', category: 'بار گرم', description: 'اسپرسو، شیر، فوم شیر' },
+  { 
+    id: 6, 
+    name: 'کاپوچینو', 
+    price: '۹۰', 
+    category: 'بار گرم',
+    ingredients: [
+        { name: 'فوم شیر', percentage: 33, color: 'bg-white/70' },
+        { name: 'شیر بخار داده شده', percentage: 34, color: 'bg-orange-200' },
+        { name: 'اسپرسو', percentage: 33, color: 'bg-yellow-800' },
+    ]
+  },
   { id: 7, name: 'نسکافه', price: '۹۰', category: 'بار گرم', description: 'قهوه فوری و شیر' },
   { id: 8, name: 'نسکافه مخصوص', price: '۱۱۰', category: 'بار گرم', description: 'قهوه فوری، شیر، خامه' },
   { id: 9, name: 'هات چاکلت', price: '۹۰', category: 'بار گرم', description: 'شکلات داغ و شیر' },
