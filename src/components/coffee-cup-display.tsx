@@ -59,6 +59,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
              const layerHeight = (ingredient.percentage / totalPercentage) * 16.06;
              const yPosition = 27.06 - accumulatedHeight - layerHeight;
              const textY = yPosition + layerHeight / 2;
+             const separatorY = yPosition + 1.2; // Offset the separator line down slightly
              accumulatedHeight += layerHeight;
 
             return (
@@ -75,7 +76,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
                 </text>
                 {index > 0 && (
                    <path
-                    d={`M 2 ${yPosition + layerHeight} C 8 ${yPosition + layerHeight - 1}, 18 ${yPosition + layerHeight + 1}, 25 ${yPosition + layerHeight}`}
+                    d={`M 2 ${separatorY} C 8 ${separatorY - 1}, 18 ${separatorY + 1}, 25 ${separatorY}`}
                     fill="none"
                     stroke="hsl(var(--primary))"
                     strokeWidth="0.5"
