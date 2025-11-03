@@ -19,27 +19,27 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
         {/* Cup body as a clipping path */}
         <defs>
           <clipPath id="cup-clip">
-            <path d="M 10 10 H 90 Q 95 55, 90 100 H 10 Q 5 55, 10 10 Z" />
+            <path d="M 15 10 H 85 L 80 100 H 20 L 15 10 Z" />
           </clipPath>
         </defs>
 
         {/* Cup Outline */}
         <path
-          d="M 10 10 H 90 Q 95 55, 90 100 H 10 Q 5 55, 10 10 Z"
+          d="M 15 10 H 85 L 80 100 H 20 L 15 10 Z"
           fill="transparent"
           stroke="hsl(var(--muted-foreground))"
           strokeWidth="3"
         />
         {/* Cup Handle */}
         <path
-          d="M 90 25 C 110 35, 110 65, 90 75"
+          d="M 85 25 C 105 35, 105 65, 85 75"
           fill="transparent"
           stroke="hsl(var(--muted-foreground))"
           strokeWidth="3"
         />
          {/* Top Lip */}
          <path 
-          d="M 10 10 C 20 0, 80 0, 90 10"
+          d="M 15 10 C 25 0, 75 0, 85 10"
           fill="transparent"
           stroke="hsl(var(--muted-foreground))"
           strokeWidth="3"
@@ -55,9 +55,9 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
             return (
               <rect
                 key={index}
-                x="5"
+                x="15"
                 y={10 + y}
-                width="90"
+                width="70"
                 height={height}
                 className={ingredient.color}
               />
@@ -89,7 +89,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
                 </text>
                 {index < ingredients.length - 1 && (
                    <path
-                    d={`M 10 ${separatorY} C 30 ${separatorY - 5}, 70 ${separatorY + 5}, 90 ${separatorY}`}
+                    d={`M 20 ${separatorY} C 40 ${separatorY - 5}, 60 ${separatorY + 5}, 80 ${separatorY}`}
                     fill="none"
                     stroke="hsl(var(--primary))"
                     strokeWidth="1.5"
