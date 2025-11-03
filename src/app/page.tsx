@@ -26,7 +26,7 @@ export default function Home() {
           onSelectCategory={setSelectedCategory}
         />
         <section
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8"
           aria-label="آیتم های منو"
         >
           {filteredItems.map((item) => (
@@ -34,7 +34,7 @@ export default function Home() {
           ))}
         </section>
       </main>
-      <footer className="text-center py-6 text-muted-foreground">
+      <footer className="text-center py-10 text-muted-foreground text-sm">
         <p>طراحی و توسعه توسط استودیو فایربیس</p>
       </footer>
     </div>
