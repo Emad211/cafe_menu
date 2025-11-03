@@ -1,19 +1,45 @@
 export type Category = 'بار گرم' | 'بار سرد';
 
+export interface Ingredient {
+  name: string;
+  percentage: number;
+  color: string;
+}
+
 export interface MenuItem {
   id: number;
   name: string;
   price: string;
   category: Category;
   description: string;
+  ingredients?: Ingredient[];
 }
 
 export const categories: Category[] = ['بار گرم', 'بار سرد'];
 
 export const menuData: MenuItem[] = [
   // بار گرم
-  { id: 1, name: 'اسپرسو', price: '۶۰', category: 'بار گرم', description: 'قهوه غلیظ و خالص' },
-  { id: 2, name: 'امریکانو', price: '۸۰', category: 'بار گرم', description: 'اسپرسو و آب داغ' },
+  { 
+    id: 1, 
+    name: 'اسپرسو', 
+    price: '۶۰', 
+    category: 'بار گرم', 
+    description: 'قهوه غلیظ و خالص',
+    ingredients: [
+      { name: 'قهوه', percentage: 100, color: 'bg-yellow-800' },
+    ]
+  },
+  { 
+    id: 2, 
+    name: 'امریکانو', 
+    price: '۸۰', 
+    category: 'بار گرم', 
+    description: 'اسپرسو و آب داغ',
+    ingredients: [
+      { name: 'قهوه', percentage: 40, color: 'bg-yellow-800' },
+      { name: 'آب داغ', percentage: 60, color: 'bg-blue-200' },
+    ]
+  },
   { id: 3, name: 'لاته', price: '۹۰', category: 'بار گرم', description: 'اسپرسو و شیر بخار داده شده' },
   { id: 4, name: 'کارامل ماکیاتو', price: '۱۱۰', category: 'بار گرم', description: 'اسپرسو، شیر، سس کارامل' },
   { id: 5, name: 'موکا', price: '۱۱۰', category: 'بار گرم', description: 'اسپرسو، شکلات، شیر' },

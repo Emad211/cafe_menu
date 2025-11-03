@@ -1,13 +1,14 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import type { MenuItem } from '@/lib/menu-data';
+import IngredientChart from './ingredient-chart';
 
 interface MenuItemCardProps {
   item: MenuItem;
 }
 
 const MenuItemCard: React.FC<MenuItemCardProps> = ({ item }) => {
-  const { name, price, description } = item;
+  const { name, price, description, ingredients } = item;
 
   return (
     <Card className="menu-item-card w-full bg-transparent border-0 border-b border-dashed border-border/50 rounded-none shadow-none p-4 flex flex-col transition-all duration-300 hover:bg-card hover:-translate-y-1">
@@ -20,7 +21,12 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item }) => {
             <p className="text-xl font-bold text-primary">{price}</p>
         </div>
       </div>
-      <p className="text-sm text-muted-foreground mt-1">{description}</p>
+      
+      {ingredients ? (
+        <IngredientChart ingredients={ingredients} />
+      ) : (
+        <p className="text-sm text-muted-foreground mt-1">{description}</p>
+      )}
     </Card>
   );
 };
