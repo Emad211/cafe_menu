@@ -44,9 +44,14 @@ export default function Home() {
               karen_coffee98
             </span>
           </a>
-          <p className="text-muted-foreground text-xs mt-2">
+          <a
+            href="https://toolbuilder.ir"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground text-xs mt-2 hover:text-primary transition-colors"
+          >
             طراحی و توسعه توسط تیم toolbuilder.ir
-          </p>
+          </a>
         </div>
       </footer>
     </div>
