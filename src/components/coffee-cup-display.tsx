@@ -27,7 +27,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
             let accumulatedPercentage = 0;
             return ingredients.map((ingredient, index) => {
               const layerHeight = (ingredient.percentage / totalPercentage) * 16.06;
-              const y = 11 + (16.06 - accumulatedPercentage - layerHeight);
+              const y = 27.06 - accumulatedPercentage - layerHeight; // y is from the top of SVG
               accumulatedPercentage += layerHeight;
 
               return (
@@ -57,7 +57,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
           let accumulatedHeight = 0;
           return ingredients.map((ingredient, index) => {
              const layerHeight = (ingredient.percentage / totalPercentage) * 16.06;
-             const yPosition = 11 + (16.06 - accumulatedHeight - layerHeight);
+             const yPosition = 27.06 - accumulatedHeight - layerHeight;
              const textY = yPosition + layerHeight / 2;
              const separatorY = yPosition;
              accumulatedHeight += layerHeight;
@@ -74,7 +74,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
                 >
                   {ingredient.name}
                 </text>
-                {index > 0 && (
+                {index < ingredients.length - 1 && (
                    <path
                     d={`M 2 ${separatorY} C 8 ${separatorY - 1}, 18 ${separatorY + 1}, 25 ${separatorY}`}
                     fill="none"
