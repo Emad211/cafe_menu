@@ -16,7 +16,10 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
             className={`flex items-center justify-center text-center ${ingredient.color}`}
             style={{ height: `${ingredient.percentage}%` }}
           >
-            <span className="text-xs font-bold text-black/60 p-1 leading-tight">
+            <span 
+              className="text-xs font-bold text-white p-1 leading-tight"
+              style={{ textShadow: '0px 0px 3px rgba(0,0,0,0.7)' }}
+            >
               {ingredient.name}
             </span>
           </div>
