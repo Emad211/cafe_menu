@@ -6,7 +6,7 @@ const MenuHeader = () => {
     <header className="text-center my-12 md:my-16 flex flex-col items-center">
       <div className="mb-6">
         <Image
-          src="https://picsum.photos/seed/karen-logo/120/120"
+          src="/logo.jpg"
           alt="لوگوی کافه کارن"
           width={120}
           height={120}
