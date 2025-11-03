@@ -9,7 +9,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
   const totalPercentage = ingredients.reduce((sum, ing) => sum + ing.percentage, 0);
 
   return (
-    <div className="relative w-48 h-48 flex items-center justify-center">
+    <div className="relative w-32 h-32 flex items-center justify-center">
       <svg
         viewBox="0 0 32 32"
         className="w-full h-full"
@@ -72,7 +72,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
                   textAnchor="middle"
                   dy="0.35em"
                   className="font-bold fill-white"
-                  style={{ fontSize: '0.6rem', textShadow: '0px 0px 4px rgba(0,0,0,0.9)' }}
+                  style={{ fontSize: '1.8px', textShadow: '0px 0px 4px rgba(0,0,0,0.9)' }}
                 >
                   {ingredient.name}
                 </text>
