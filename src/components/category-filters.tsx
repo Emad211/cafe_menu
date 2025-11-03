@@ -16,13 +16,13 @@ const CategoryFilters: React.FC<CategoryFiltersProps> = ({
   onSelectCategory,
 }) => {
   return (
-    <div className="flex justify-center flex-wrap gap-4 mb-12">
+    <div className="flex justify-center flex-wrap gap-3 md:gap-4 mb-12 border border-border bg-card p-2 rounded-lg">
       {categories.map((category) => (
         <Button
           key={category}
-          variant={selectedCategory === category ? 'default' : 'secondary'}
+          variant={selectedCategory === category ? 'default' : 'ghost'}
           onClick={() => onSelectCategory(category)}
-          className="rounded-lg px-6 py-2 text-lg font-bold transition-all duration-300 transform hover:scale-105"
+          className="rounded-md flex-grow md:flex-grow-0 px-6 py-2 text-base font-semibold transition-all duration-200"
         >
           {category}
         </Button>

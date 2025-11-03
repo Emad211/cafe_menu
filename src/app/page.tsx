@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import { Instagram } from 'lucide-react';
 import MenuHeader from '@/components/menu-header';
 import CategoryFilters from '@/components/category-filters';
 import MenuItemCard from '@/components/menu-item-card';
@@ -13,8 +14,8 @@ export default function Home() {
   const filteredItems = menuData.filter((item) => item.category === selectedCategory);
 
   return (
-    <div className="bg-background min-h-screen">
-      <main className="container mx-auto px-4 py-8">
+    <div className="bg-background min-h-screen font-body flex flex-col">
+      <main className="flex-grow container mx-auto px-4 py-8">
         <MenuHeader />
         <CategoryFilters
           categories={categories}
@@ -22,7 +23,7 @@ export default function Home() {
           onSelectCategory={setSelectedCategory}
         />
         <section
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6"
           aria-label="آیتم های منو"
         >
           {filteredItems.map((item) => (
@@ -30,8 +31,21 @@ export default function Home() {
           ))}
         </section>
       </main>
-      <footer className="text-center py-10 text-muted-foreground text-sm">
-        <p>طراحی و توسعه توسط استودیو فایربیس</p>
+      <footer className="bg-card text-center py-6 mt-12 border-t border-primary/20">
+        <div className="container mx-auto flex flex-col items-center gap-4">
+          <a
+            href="https://instagram.com/karen.cafe"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-lg text-primary hover:text-primary/80 transition-colors"
+          >
+            <Instagram size={24} />
+            <span className="font-semibold">karen.cafe</span>
+          </a>
+          <p className="text-muted-foreground text-sm">
+            طراحی و توسعه توسط استودیو فایربیس
+          </p>
+        </div>
       </footer>
     </div>
   );
