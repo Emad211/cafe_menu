@@ -6,8 +6,19 @@ interface CoffeeCupDisplayProps {
 }
 
 const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
-  const totalPercentage = ingredients.reduce((sum, ing) => sum + ing.percentage, 0);
   const cupFillHeight = 16.06; // The visible height inside the cup from y=11 to y=27.06
+  
+  // Assign a minimum percentage to each ingredient for better visualization
+  const minVisualPercentage = 15;
+  const totalOriginalPercentage = ingredients.reduce((sum, ing) => sum + ing.percentage, 0);
+
+  const adjustedIngredients = ingredients.map(ing => ({
+    ...ing,
+    visualPercentage: Math.max(ing.percentage, minVisualPercentage)
+  }));
+
+  const totalVisualPercentage = adjustedIngredients.reduce((sum, ing) => sum + ing.visualPercentage, 0);
+
 
   return (
     <div className="relative w-48 h-48 flex items-center justify-center">
@@ -26,8 +37,8 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
         <g clipPath="url(#cup-clip)">
           {(() => {
             let accumulatedHeight = 0;
-            return ingredients.map((ingredient, index) => {
-              const layerHeight = (ingredient.percentage / totalPercentage) * cupFillHeight;
+            return adjustedIngredients.map((ingredient, index) => {
+              const layerHeight = (ingredient.visualPercentage / totalVisualPercentage) * cupFillHeight;
               const y = 27.06 - accumulatedHeight - layerHeight;
               accumulatedHeight += layerHeight;
 
@@ -56,8 +67,8 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
         {/* Wavy Separators and Text */}
         {(() => {
           let accumulatedHeight = 0;
-          return ingredients.map((ingredient, index) => {
-             const layerHeight = (ingredient.percentage / totalPercentage) * cupFillHeight;
+          return adjustedIngredients.map((ingredient, index) => {
+             const layerHeight = (ingredient.visualPercentage / totalVisualPercentage) * cupFillHeight;
              const yPosition = 27.06 - accumulatedHeight;
              const textY = yPosition - (layerHeight / 2);
              accumulatedHeight += layerHeight;
