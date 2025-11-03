@@ -11,7 +11,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
   return (
     <div className="relative w-32 h-32 flex items-center justify-center">
       <svg
-        viewBox="0 0 32 32"
+        viewBox="0 0 33 32"
         className="w-full h-full"
         style={{ filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }}
       >
