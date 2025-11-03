@@ -79,7 +79,7 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
                   textAnchor="middle"
                   dy="0.35em"
                   className="font-bold fill-white"
-                  style={{ textShadow: '0px 0px 4px rgba(0,0,0,0.9)', fontSize: '0.7rem' }}
+                  style={{ textShadow: '0px 0px 4px rgba(0,0,0,0.9)', fontSize: '0.65rem' }}
                 >
                   {ingredient.name}
                 </text>
