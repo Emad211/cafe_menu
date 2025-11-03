@@ -45,7 +45,7 @@ export default function Home() {
             </span>
           </a>
           <p className="text-muted-foreground text-xs mt-2">
-            طراحی و توسعه توسط استودیو فایربیس
+            طراحی و توسعه توسط تیم toolbuilder.ir
           </p>
         </div>
       </footer>
