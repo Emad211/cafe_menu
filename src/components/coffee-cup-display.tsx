@@ -7,69 +7,70 @@ interface CoffeeCupDisplayProps {
 
 const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
   const totalPercentage = ingredients.reduce((sum, ing) => sum + ing.percentage, 0);
-  let accumulatedPercentage = 0;
 
   return (
-    <div className="relative w-36 h-48 flex items-center justify-center">
+    <div className="relative w-40 h-40 flex items-center justify-center">
       <svg
-        viewBox="0 0 100 130"
+        viewBox="0 0 140 120"
         className="w-full h-full"
         style={{ filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }}
       >
-        {/* Clipping Path for the glass shape */}
+        {/* Clipping Path for the cup shape */}
         <defs>
-          <clipPath id="glass-clip">
-            <path d="M 15 10 H 85 L 80 120 H 20 L 15 10 Z" />
+          <clipPath id="cup-clip">
+            <path d="M 10 20 C 10 5, 90 5, 90 20 C 90 60, 10 60, 10 20 Z" />
           </clipPath>
         </defs>
 
-        {/* Glass Outline */}
-        <path
-          d="M 15 10 H 85 L 80 120 H 20 L 15 10 Z"
-          fill="transparent"
-          stroke="hsl(var(--muted-foreground))"
-          strokeWidth="2.5"
-        />
-        {/* Top Rim */}
-        <ellipse 
-          cx="50" 
-          cy="10" 
-          rx="35" 
-          ry="5"
-          fill="transparent"
-          stroke="hsl(var(--muted-foreground))"
-          strokeWidth="2.5"
-        />
-
         {/* Ingredients Layers inside the clipped path */}
-        <g clipPath="url(#glass-clip)">
-          {ingredients.map((ingredient, index) => {
-            const y = 110 - (accumulatedPercentage + ingredient.percentage) * 110 / totalPercentage;
-            const height = ingredient.percentage * 110 / totalPercentage;
-            accumulatedPercentage += ingredient.percentage;
+        <g clipPath="url(#cup-clip)">
+          {(() => {
+            let accumulatedPercentage = 0;
+            return [...ingredients].reverse().map((ingredient, index) => {
+              const y = 20 + accumulatedPercentage * 40 / totalPercentage;
+              const height = ingredient.percentage * 40 / totalPercentage;
+              accumulatedPercentage += ingredient.percentage;
 
-            return (
-              <rect
-                key={index}
-                x="15"
-                y={10 + y}
-                width="70"
-                height={height}
-                className={ingredient.color}
-              />
-            );
-          })}
+              return (
+                <rect
+                  key={index}
+                  x="10"
+                  y={y}
+                  width="80"
+                  height={height}
+                  className={ingredient.color}
+                />
+              );
+            });
+          })()}
         </g>
+        
+        {/* Cup Outline */}
+        <path
+          d="M 10 20 C 10 5, 90 5, 90 20 C 90 60, 10 60, 10 20 Z"
+          fill="transparent"
+          stroke="hsl(var(--muted-foreground))"
+          strokeWidth="2.5"
+        />
+        
+        {/* Cup Handle */}
+        <path
+          d="M 90 35 C 115 30, 115 50, 90 45"
+          fill="transparent"
+          stroke="hsl(var(--muted-foreground))"
+          strokeWidth="2.5"
+        />
 
         {/* Wavy Separators and Text */}
         {(() => {
           let accumulatedHeight = 0;
-          return ingredients.map((ingredient, index) => {
-            const layerHeight = (ingredient.percentage / totalPercentage) * 110;
-            const yPosition = 10 + accumulatedHeight;
+          const reversedIngredients = [...ingredients].reverse();
+          return reversedIngredients.map((ingredient, index) => {
+            const layerHeight = (ingredient.percentage / totalPercentage) * 40;
+            const yPosition = 20 + accumulatedHeight;
             const textY = yPosition + layerHeight / 2;
             accumulatedHeight += layerHeight;
-            const separatorY = 10 + accumulatedHeight;
+            const separatorY = 20 + accumulatedHeight;
 
             return (
               <g key={`text-wave-${index}`}>
@@ -85,11 +86,12 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
                 </text>
                 {index < ingredients.length - 1 && (
                    <path
-                    d={`M 20 ${separatorY} C 40 ${separatorY - 4}, 60 ${separatorY + 4}, 80 ${separatorY}`}
+                    d={`M 15 ${separatorY} C 35 ${separatorY - 3}, 65 ${separatorY + 3}, 85 ${separatorY}`}
                     fill="none"
                     stroke="hsl(var(--primary))"
                     strokeWidth="1.5"
                     strokeLinecap="round"
+                    clipPath="url(#cup-clip)"
                   />
                 )}
               </g>
