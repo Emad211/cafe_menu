@@ -59,14 +59,16 @@ const CoffeeCupDisplay: React.FC<CoffeeCupDisplayProps> = ({ ingredients }) => {
           return ingredients.map((ingredient, index) => {
              const layerHeight = (ingredient.percentage / totalPercentage) * cupFillHeight;
              const yPosition = 27.06 - accumulatedHeight;
-             const textY = yPosition - (layerHeight / 2);
+             // Shift the text up slightly, especially for the bottom layer.
+             const textY = yPosition - (layerHeight / 2) - (index === ingredients.length -1 ? 0.8 : 0);
+             const separatorY = yPosition - layerHeight;
              accumulatedHeight += layerHeight;
 
             return (
               <g key={`text-wave-${index}`}>
-                 {index < ingredients.length -1 && (
+                 {index < ingredients.length - 1 && (
                    <path
-                    d={`M 2 ${yPosition - layerHeight} C 8 ${yPosition - layerHeight - 1}, 18 ${yPosition - layerHeight + 1}, 25 ${yPosition - layerHeight}`}
+                    d={`M 2 ${separatorY + 0.8} C 8 ${separatorY - 0.2}, 18 ${separatorY + 1.8}, 25 ${separatorY + 0.8}`}
                     fill="none"
                     stroke="hsl(var(--primary))"
                     strokeWidth="0.5"
