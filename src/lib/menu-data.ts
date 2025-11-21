@@ -119,7 +119,7 @@ export const menuData: MenuItem[] = [
   { 
     id: 10, 
     name: 'دمنوش', 
-    price: '۴۰', 
+    price: '۴۰',
     category: 'بار گرم', 
     ingredients: [
         { name: 'دمنوش گیاهی', percentage: 100, color: 'bg-rose-400' },
@@ -139,11 +139,9 @@ export const menuData: MenuItem[] = [
     name: 'ماسالا', 
     price: '۹۰', 
     category: 'بار گرم',
-    description: 'چای تند و شیرین هندی با ادویه‌های معطر',
     ingredients: [
-        { name: 'شیر', percentage: 60, color: 'bg-orange-200' },
-        { name: 'چای سیاه', percentage: 20, color: 'bg-red-800' },
-        { name: 'ادویه ماسالا', percentage: 20, color: 'bg-orange-700' },
+        { name: 'شیر', percentage: 80, color: 'bg-orange-200' },
+        { name: 'ماسالا', percentage: 20, color: 'bg-orange-700' },
     ]
   },
 
